@@ -5,6 +5,7 @@ import Hero from "./components/hero/Hero";
 import HomePage from "./pages/home/HomePage";
 import TrackPage from "./pages/TrackPage";
 import TrekGallery from "./components/track/TrekGallery";
+
 function App() {
   return (
     <BrowserRouter>
@@ -12,11 +13,9 @@ function App() {
         {/* Layout wrapper */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} /> {/* Home page */}
+          <Route path="/track" element={<TrackPage />} />
+          <Route path="/trek-gallery" element={<TrekGallery />} />
         </Route>
-        <Route path="/track" element={<Layout />}>
-          <Route index element={<TrackPage />} />
-        </Route>
-        <Route path="/trek-gallery" element={<TrekGallery />} />
       </Routes>
     </BrowserRouter>
   );

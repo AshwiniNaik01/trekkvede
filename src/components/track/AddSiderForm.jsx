@@ -27,7 +27,7 @@ const AddSiderForm = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto grid grid-cols-12 gap-1 h-[300px]  md:h-[420px]">
+    <div className="relative w-full max-w-full mb-20 mx-auto grid grid-cols-12 gap-1 h-[300px] md:h-[420px]">
       {/* BIG IMAGE SWIPER */}
       <div className="col-span-6">
         <Swiper

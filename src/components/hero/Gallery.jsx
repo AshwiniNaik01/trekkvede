@@ -42,13 +42,13 @@ const Gallery = () => {
       category: "Base Camp"
     },
     {
-      url: "https://images.unsplash.com/photo-1536152471326-642d946b4f6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
-      category: "Sunrise"
+      url: "https://images.pexels.com/photos/914128/pexels-photo-914128.jpeg?cs=srgb&dl=pexels-saikat-ghosh-323099-914128.jpg&fm=jpg",
+      category: "Himalayans"
     }
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-emerald-50 to-white">
+    <section id="gallery" className="py-12 bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full font-semibold mb-4">
