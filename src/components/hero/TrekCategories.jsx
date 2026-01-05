@@ -1,277 +1,205 @@
-// const TrekCategories = () => (
-//   <section className="py-12 bg-gray-50">
-//     <h2 className="text-center text-3xl mb-6">Trek Categories</h2>
-//     <div className="flex flex-wrap justify-center gap-4">
-//       {["Beginner", "Family", "High Altitude", "Weekend"].map(cat => (
-//         <span key={cat} className="px-4 py-2 border rounded">
-//           {cat}
-//         </span>
-//       ))}
-//     </div>
-//   </section>
-// );
+import React, { useState } from "react";
 
-// export default TrekCategories;
+const winterImages = [
+  "https://images.prismic.io/indiahike/f0e8c174-54f0-47db-97fe-b19f90bb47ad_Lohajung_Brahmatal_Drone_shot_Vignesh2.jpg",
+  "https://images.prismic.io/indiahike/37f413f1-5df0-46dc-8a01-43539aeb1d9f_Brahmatal-Trek_Guhanesan-Sivalingam_Sunset-View-from-Tilandi-Campsite_1_.jpg",
+  "https://images.prismic.io/indiahike/d7b174bc-af90-4c41-89fa-4a55c8d5c76c_Brahmatal_BT_Indiahikes_VishwajeetChavan_brahmatalcampsite_campsite_winter_.jpg",
+];
 
-import {
-  ArrowRight,
-  Clock,
-  Compass,
-  Mountain,
-  Snowflake,
-  Sparkles,
-  Sun,
-  Tent,
-  Users,
-} from "lucide-react";
-import { useState } from "react";
+const springImages = [
+  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2",
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2",
+];
 
-const TrekCategories = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+const categories = [
+  { title: "Winter", images: winterImages },
+  { title: "Spring", images: springImages },
+  {
+    title: "Treks by Month",
+    items: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    links: [
+      "/tag/january",
+      "/tag/february",
+      "/tag/march",
+      "/tag/april",
+      "/tag/may",
+      "/tag/june",
+      "/tag/july",
+      "/tag/august",
+      "/tag/september",
+      "/tag/october",
+      "/tag/november",
+      "/tag/december",
+    ],
+  },
+  {
+    title: "Treks by Difficulty",
+    items: [
+      "Easy",
+      "Easy - Moderate",
+      "Moderate",
+      "Moderate - Difficult",
+      "Difficult",
+    ],
+    links: [
+      "/tag/easy",
+      "/tag/easy-moderate",
+      "/tag/moderate",
+      "/tag/moderate-difficult",
+      "/tag/difficult",
+    ],
+  },
+  // Add other categories similarly...
+];
 
-  const categories = [
-    {
-      id: "beginner",
-      title: "Beginner Friendly",
-      description: "Perfect for first-time trekkers with gentle slopes",
-      icon: <Sparkles className="w-8 h-8" />,
-      count: 28,
-      gradient: "from-green-400 to-emerald-500",
-      bgColor: "bg-green-50",
-      textColor: "text-green-700",
-      duration: "1-3 Days",
-      difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    },
-    {
-      id: "family",
-      title: "Family Treks",
-      description: "Safe adventures for all ages and skill levels",
-      icon: <Users className="w-8 h-8" />,
-      count: 15,
-      gradient: "from-blue-400 to-cyan-500",
-      bgColor: "bg-blue-50",
-      textColor: "text-blue-700",
-      duration: "1-2 Days",
-      difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-    },
-    {
-      id: "high-altitude",
-      title: "High Altitude",
-      description: "Challenging climbs above 4000m with stunning views",
-      icon: <Mountain className="w-8 h-8" />,
-      count: 42,
-      gradient: "from-purple-400 to-indigo-500",
-      bgColor: "bg-purple-50",
-      textColor: "text-purple-700",
-      duration: "7-14 Days",
-      difficulty: "Challenging",
-      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-    },
-    {
-      id: "weekend",
-      title: "Weekend Escapes",
-      description: "Quick getaways perfect for busy schedules",
-      icon: <Sun className="w-8 h-8" />,
-      count: 35,
-      gradient: "from-amber-400 to-orange-500",
-      bgColor: "bg-amber-50",
-      textColor: "text-amber-700",
-      duration: "2-3 Days",
-      difficulty: "Moderate",
-      image: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
-    },
-    {
-      id: "winter",
-      title: "Winter Treks",
-      description: "Snow-covered trails and frozen landscapes",
-      icon: <Snowflake className="w-8 h-8" />,
-      count: 18,
-      gradient: "from-cyan-400 to-blue-500",
-      bgColor: "bg-cyan-50",
-      textColor: "text-cyan-700",
-      duration: "3-5 Days",
-      difficulty: "Difficult",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8GF3f2ybAjw3UzceqY5SRrQx2kTUEvqyvOQ&s",
-    },
-    {
-      id: "camping",
-      title: "Camping Treks",
-      description: "Overnight stays under the stars",
-      icon: <Tent className="w-8 h-8" />,
-      count: 24,
-      gradient: "from-emerald-400 to-teal-500",
-      bgColor: "bg-emerald-50",
-      textColor: "text-emerald-700",
-      duration: "2-4 Days",
-      difficulty: "Moderate",
-      image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
-    },
-    {
-      id: "expedition",
-      title: "Expeditions",
-      description: "Professional grade adventures for experts",
-      icon: <Compass className="w-8 h-8" />,
-      count: 12,
-      gradient: "from-red-400 to-rose-500",
-      bgColor: "bg-red-50",
-      textColor: "text-red-700",
-      duration: "10-21 Days",
-      difficulty: "Expert",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    },
-    {
-      id: "day-treks",
-      title: "Day Treks",
-      description: "Return the same day, perfect for beginners",
-      icon: <Clock className="w-8 h-8" />,
-      count: 31,
-      gradient: "from-lime-400 to-green-500",
-      bgColor: "bg-lime-50",
-      textColor: "text-lime-700",
-      duration: "4-8 Hours",
-      difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    },
-  ];
+const TrekGallery = () => {
+  const [activeTab, setActiveTab] = useState(categories[0].title);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const filterButtons = [
-    {
-      id: "all",
-      label: "All Treks",
-      count: categories.reduce((sum, cat) => sum + cat.count, 0),
-    },
-    { id: "easy", label: "Easy", count: 74 },
-    { id: "moderate", label: "Moderate", count: 59 },
-    { id: "challenging", label: "Challenging", count: 42 },
-    { id: "expert", label: "Expert", count: 12 },
-  ];
+  const activeCategory = categories.find((cat) => cat.title === activeTab);
+
+  // Images for Winter/Spring or empty array if category has none
+  const images = activeCategory.images || [];
+  const imagesPerPage = 6;
+  const totalPages = Math.ceil(images.length / imagesPerPage);
+
+  const displayedImages = images.slice(
+    (currentPage - 1) * imagesPerPage,
+    currentPage * imagesPerPage
+  );
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setCurrentPage(1); // reset pagination
+  };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full font-semibold mb-4">
-            EXPLORE CATEGORIES
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Find Your Perfect
-            <span className="text-emerald-700"> Trek Type</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Discover treks tailored to your experience level, time availability,
-            and adventure preferences
-          </p>
-        </div>
+    <section className="max-w-7xl mx-auto px-6 py-20">
+      {/* Heading */}
+      <div className="text-center mb-14">
+        <h2 className="text-4xl md:text-5xl font-extrabold font-serif text-gray-900">
+          Brahmatal <span className="text-emerald-600">Trek Gallery</span>
+        </h2>
+        <div className="mx-auto mt-5 h-1 w-28 bg-gradient-to-r from-emerald-400 to-sky-400 rounded-full" />
+      </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {filterButtons.map((filter) => (
-            <button
-              key={filter.id}
-              onClick={() => setActiveCategory(filter.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                activeCategory === filter.id
-                  ? "bg-emerald-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+      {/* Dynamic Tabs */}
+      <div className="flex flex-wrap justify-center gap-4 mb-6">
+        {categories.map((cat) => (
+          <button
+            key={cat.title}
+            onClick={() => handleTabChange(cat.title)}
+            className={`px-6 py-3 font-semibold transition
+              ${
+                activeTab === cat.title
+                  ? "border-b-4 border-emerald-500 text-emerald-600"
+                  : "text-gray-500 hover:text-gray-700"
               }`}
+          >
+            {cat.title}
+          </button>
+        ))}
+      </div>
+
+      {/* Subcategories if available */}
+      {activeCategory.items && (
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {activeCategory.items.map((item, index) => (
+            <a
+              key={index}
+              href={activeCategory.links ? activeCategory.links[index] : "#"}
+              className="px-4 py-2 bg-gray-100 hover:bg-emerald-100 rounded-full text-gray-700 font-medium transition"
             >
-              {filter.label}
-              <span
-                className={`ml-2 px-2 py-1 text-xs rounded-full ${
-                  activeCategory === filter.id
-                    ? "bg-emerald-500"
-                    : "bg-gray-100 text-gray-600"
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {/* Image Grid */}
+      {images.length > 0 ? (
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            {displayedImages.map((img, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl shadow-lg"
+              >
+                <img
+                  src={img}
+                  alt={activeTab}
+                  className="h-56 w-full object-cover transform group-hover:scale-110 transition duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition" />
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-3 mt-10 font-semibold text-gray-700">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                className={`px-3 py-1 rounded-full border hover:bg-gray-100 transition ${
+                  currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                {filter.count}
-              </span>
-            </button>
-          ))}
-        </div>
+                ‹ Previous
+              </button>
 
-        {/* Categories Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className={`group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer`}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              {/* Category Image/Background */}
-              <div className="h-40 relative overflow-hidden">
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/30"></div>{" "}
-                {/* overlay for contrast */}
-                {/* <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-90`}></div> */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white p-4 rounded-full bg-white/20 backdrop-blur-sm">
-                    {category.icon}
-                  </div>
-                </div>
-                {/* Difficulty Badge */}
-                <div className="absolute top-4 right-4">
-                  <span
-                    className={`px-3 py-1 ${category.bgColor} ${category.textColor} text-sm font-semibold rounded-full`}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-3 py-1 rounded-full border transition ${
+                      currentPage === page
+                        ? "bg-emerald-500 text-white border-emerald-500"
+                        : "hover:bg-gray-100"
+                    }`}
                   >
-                    {category.difficulty}
-                  </span>
-                </div>
-                {/* Count Badge */}
-                <div className="absolute bottom-4 left-4">
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
-                    {category.count} Treks
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors duration-300">
-                  {category.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  {category.description}
-                </p>
-
-                {/* Duration */}
-                <div className="flex items-center text-gray-500 mb-4">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span className="text-sm">{category.duration}</span>
-                </div>
-
-                {/* CTA */}
-                <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-                  <span className="text-sm text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors duration-300">
-                    Explore Treks
-                  </span>
-                  <ArrowRight className="w-5 h-5 text-emerald-600 group-hover:text-emerald-700 group-hover:translate-x-2 transition-all duration-300" />
-                </div>
-              </div>
-
-              {/* Active Indicator */}
-              {activeCategory === category.id && (
-                <div className="absolute top-0 left-0 w-full h-1 bg-emerald-600"></div>
+                    {page}
+                  </button>
+                )
               )}
+
+              <button
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                className={`px-3 py-1 rounded-full border hover:bg-gray-100 transition ${
+                  currentPage === totalPages
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
+              >
+                Next ›
+              </button>
             </div>
-          ))}
-        </div>
-
-        {/* Recommended Treks Section */}
-
-        {/* Seasonal Categories */}
-
-        {/* CTA */}
-      </div>
+          )}
+        </>
+      ) : (
+        <p className="text-center text-gray-500 mt-10">
+          No images available for this category.
+        </p>
+      )}
     </section>
   );
 };
 
-export default TrekCategories;
+export default TrekGallery;

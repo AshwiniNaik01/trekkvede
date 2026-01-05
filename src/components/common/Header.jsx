@@ -1,59 +1,54 @@
-// import React from 'react';
-
-// const Header = () => {
-//   return (
-//     <header className="bg-white shadow-md sticky top-0 z-50">
-//       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-//         <div className="text-2xl font-bold text-green-600">TrekMaster</div>
-//         <nav className="space-x-6">
-//           <a href="/" className="hover:text-green-600">Home</a>
-//           <a href="/treks" className="hover:text-green-600">Treks</a>
-//           <a href="/about" className="hover:text-green-600">About Us</a>
-//           <a href="/contact" className="hover:text-green-600">Contact</a>
-//           <a href="/login" className="hover:text-green-600">Login/Register</a>
-//         </nav>
-//         <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-//           Book a Trek
-//         </button>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
-
-// components/Header.jsx
-import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Phone, User } from 'lucide-react';
-
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Menu,
+  X,
+  MapPin,
+  Phone,
+  User,
+  Heart,
+  Star,
+  LogOut,
+} from "lucide-react";
+import { useLocation } from "react-router-dom";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const location = useLocation();
+  const userMenuRef = useRef();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    // Close dropdown if clicked outside
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
-
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Treks', href: '#treks' },
-    { name: 'Destinations', href: '#destinations' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "/" },
+    { name: "Treks", href: "/treks" },
+    { name: "Destinations", href: "/destinations" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
-
+  const alwaysScrolledPages = ["/about", "/wishlist"];
+  const isPageScrolledStyle = alwaysScrolledPages.includes(location.pathname);
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-emerald-900/95 backdrop-blur-md py-3 shadow-lg'
-          : 'bg-transparent py-5'
+        isScrolled || isPageScrolledStyle
+          ? "bg-emerald-900/95 backdrop-blur-md py-3 shadow-lg"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -68,7 +63,6 @@ const Header = () => {
               <p className="text-xs text-amber-300">Adventure Awaits</p>
             </div>
           </div>
-
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -81,7 +75,6 @@ const Header = () => {
               </a>
             ))}
           </nav>
-
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-6">
             <div className="flex items-center space-x-2">
@@ -91,20 +84,41 @@ const Header = () => {
             <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
               Book Now
             </button>
-            <button className="border border-amber-300 text-amber-300 px-4 py-2 rounded-full hover:bg-amber-300/10 transition-colors duration-300">
-              <User className="w-5 h-5" />
-            </button>
+            {/* User Dropdown */}
+            <div className="relative" ref={userMenuRef}>
+              <button
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                className="border border-amber-300 text-amber-300 px-4 py-2 rounded-full hover:bg-amber-300/10 transition-colors duration-300 flex items-center"
+              >
+                <User className="w-5 h-5" />
+              </button>
+              {isUserMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-emerald-800/95 backdrop-blur-md rounded-lg shadow-lg py-2 flex flex-col z-50 animate-fadeIn">
+                  <button className="flex items-center gap-2 px-4 py-2 text-white hover:bg-emerald-700 transition-colors duration-200">
+                    <Heart className="w-4 h-4 text-pink-400" /> Wishlist
+                  </button>
+                  <button className="flex items-center gap-2 px-4 py-2 text-white hover:bg-emerald-700 transition-colors duration-200">
+                    <Star className="w-4 h-4 text-yellow-400" /> Likes
+                  </button>
+                  <button className="flex items-center gap-2 px-4 py-2 text-white hover:bg-emerald-700 transition-colors duration-200">
+                    <LogOut className="w-4 h-4 text-red-400" /> Logout
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
-
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 bg-emerald-800/95 backdrop-blur-md rounded-lg p-4">
@@ -128,8 +142,23 @@ const Header = () => {
           </div>
         )}
       </div>
+      {/* Tailwind animation for dropdown */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-5px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.2s ease-in-out forwards;
+        }
+      `}</style>
     </header>
   );
 };
-
 export default Header;

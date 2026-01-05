@@ -21,13 +21,13 @@ const AddSiderForm = () => {
   const galleryImages = [
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
-    "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=1200",
+    "https://images.unsplash.com/photo-1521295121783-8a321d551ad2",
     "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200",
     "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1200",
   ];
 
   return (
-    <div className="relative w-full max-w-full mb-20 mx-auto grid grid-cols-12 gap-1 h-[300px] md:h-[420px]">
+    <div className="relative w-full max-w-full  mx-auto grid grid-cols-12 gap-1 h-[300px] md:h-[420px]">
       {/* BIG IMAGE SWIPER */}
       <div className="col-span-6">
         <Swiper
