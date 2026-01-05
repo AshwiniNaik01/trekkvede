@@ -1,3 +1,4 @@
+import AboutUs from "../../components/hero/AboutUs";
 import FAQs from "../../components/hero/FAQs";
 import FeaturedTreks from "../../components/hero/FeaturedTreks";
 import Gallery from "../../components/hero/Gallery";
@@ -16,6 +17,7 @@ const HomePage = () => {
       <TrekCategories />
       {/* <Booking /> */}
       <FeaturedTreks />
+          <AboutUs />
     
 
       {/* <HowItWorks /> */}
@@ -24,8 +26,8 @@ const HomePage = () => {
       {/* <SafetySection /> */}
       {/* <WhyChooseUs /> */}
       <FAQs />
-     {/*} <AboutUs />
-      <CTASection /> */}
+ 
+     {/*} <CTASection /> */}
     </>
   );
 };

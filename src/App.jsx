@@ -5,6 +5,7 @@ import Hero from './components/hero/Hero';
 import HomePage from './pages/home/HomePage';
 import TrackPage from './pages/TrackPage';
 import TrekGallery from './components/track/TrekGallery';
+import WishlistPage from './pages/WishlistPage';
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         {/* Layout wrapper */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} /> {/* Home page */}
-            <Route path="/track" element={<TrackPage />}/>
+            <Route path="/trek" element={<TrackPage />}/>
              <Route path="/trek-gallery" element={<TrekGallery />}/>
+              <Route path="/wishlist" element={<WishlistPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
