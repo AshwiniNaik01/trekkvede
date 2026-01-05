@@ -11,7 +11,7 @@ const Layout = () => {
       <Header />
 
       {/* Main content */}
-      <main className="flex-grow">
+      <main className="flex-grow bg-emerald-0">
         <Outlet />
       </main>
 

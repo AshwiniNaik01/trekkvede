@@ -1,3 +1,4 @@
+import FAQs from "../../components/hero/FAQs";
 import FeaturedTreks from "../../components/hero/FeaturedTreks";
 import Gallery from "../../components/hero/Gallery";
 import Hero from "../../components/hero/Hero";
@@ -22,8 +23,8 @@ const HomePage = () => {
       <Testimonials />
       {/* <SafetySection /> */}
       {/* <WhyChooseUs /> */}
-      {/* <FAQs />
-      <AboutUs />
+      <FAQs />
+     {/*} <AboutUs />
       <CTASection /> */}
     </>
   );
