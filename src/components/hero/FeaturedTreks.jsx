@@ -530,11 +530,11 @@ const Features = () => {
           
           <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-8 max-w-full">
             <span className="relative inline-block">
-              <span className="relative z-10 font-serif">Adventure</span>
+              <span className="relative z-10">Adventure</span>
               <span className="absolute bottom-2 left-0 w-full h-6 bg-gradient-to-r from-amber-400/40 to-orange-400/40 -z-10 transform -skew-x-12"></span>
             </span>
             <span className="block mt-4">
-              with <span className="text-transparent font-serif bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 animate-gradient">Confidence</span>
+              with <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 animate-gradient">Confidence</span>
             </span>
           </h2>
           
