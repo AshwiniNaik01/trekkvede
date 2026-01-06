@@ -6,6 +6,7 @@ import HomePage from "./pages/home/HomePage";
 import TrackPage from "./pages/TrackPage";
 import TrekGallery from "./components/track/TrekGallery";
 import WishlistPage from "./pages/WishlistPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/trek" element={<TrackPage />} />
           <Route path="/trek-gallery" element={<TrekGallery />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
