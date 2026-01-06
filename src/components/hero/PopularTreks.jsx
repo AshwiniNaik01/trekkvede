@@ -549,7 +549,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: true,
-      season: "Spring/Autumn",
+      season: "Autumn",
       altitude: "5,364m",
       tags: ["Himalayas", "Epic", "Bucket List"],
       highlight: "Conquer the world's highest base camp",
@@ -568,7 +568,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: true,
-      season: "May-September",
+      season: "May-Sep",
       altitude: "4,200m",
       tags: ["Ancient", "Cultural", "Mystical"],
       highlight: "Discover lost civilizations",
@@ -587,7 +587,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: true,
-      season: "June-October",
+      season: "June-Oct",
       altitude: "5,895m",
       tags: ["Africa", "Volcano", "Seven Summits"],
       highlight: "Reach the Roof of Africa",
@@ -606,7 +606,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: false,
-      season: "Mar-May, Sep-Nov",
+      season: "Sep-Nov",
       altitude: "5,416m",
       tags: ["Classic", "Diverse", "Cultural"],
       highlight: "World's most diverse trekking route",
@@ -625,7 +625,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: true,
-      season: "November-March",
+      season: "Nov-Mar",
       altitude: "1,000m",
       tags: ["Glaciers", "Wild", "Remote"],
       highlight: "Witness towering glaciers and rugged peaks",
@@ -644,7 +644,7 @@ const PopularTreks = () => {
       image:
         "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       featured: false,
-      season: "June-September",
+      season: "June-Sep",
       altitude: "2,665m",
       tags: ["Alpine", "Scenic", "European"],
       highlight: "Cross three countries on foot",
@@ -1197,12 +1197,12 @@ const PopularTreks = () => {
       <div className="relative container mx-auto px-4 z-10">
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-6 py-2 rounded-full mb-6 shadow-lg">
             <Sparkles className="w-6 h-6" />
-            <span className="font-bold tracking-wide text-md">
+            <span className="font-bold tracking-wide text-sm">
               UNCHARTED ADVENTURES AWAIT
             </span>
-            <Mountain className="w-6 h-6" />
+            {/* <Mountain className="w-6 h-6" /> */}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -1256,7 +1256,7 @@ const PopularTreks = () => {
               />
             </div>
 
-            <button className="bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition">
+            <button className="bg-gradient-to-r from-amber-600 to-amber-500 text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition">
               Find Adventures
             </button>
           </div>
@@ -1329,7 +1329,7 @@ const PopularTreks = () => {
   {filteredTreks.map((trek) => (
     <div
       key={trek.id}
-      className="group relative overflow-hidden rounded-sm transition-all duration-500 hover:scale-[1.02]"
+      className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02]"
     >
       {/* ❤️ Heart Button – Top Right */}
       <button
@@ -1366,7 +1366,7 @@ const PopularTreks = () => {
           alt={trek.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
       </div>
 
       {/* 📦 Card Content */}
@@ -1454,10 +1454,10 @@ const PopularTreks = () => {
 
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 transition">
+        <div className="my-5 text-center">
+          <button className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-10 py-4 rounded-xl font-bold text-md shadow-lg hover:scale-105 transition">
             <Map className="w-6 h-6" />
-            EXPLORE ALL {allTreks.length}+ EXPEDITIONS
+            EXPLORE ALL EXPEDITIONS
           </button>
         </div>
       </div>
