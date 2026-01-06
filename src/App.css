@@ -44,3 +44,7 @@
 
 
 @import "tailwindcss";
+
+button {
+  cursor: pointer;
+}

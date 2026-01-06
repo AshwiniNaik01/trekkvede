@@ -10,8 +10,10 @@ import {
   Users,
 } from "lucide-react";
 import { useState } from "react";
+
 const TrekCategories = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+
   const categories = [
     {
       id: "beginner",
@@ -24,7 +26,8 @@ const TrekCategories = () => {
       textColor: "text-green-700",
       duration: "1-3 Days",
       difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      image:
+        "https://completewellbeing.com/wp-content/uploads/2014/04/discover-the-beauty-of-trekking.jpg",
     },
     {
       id: "family",
@@ -37,7 +40,8 @@ const TrekCategories = () => {
       textColor: "text-blue-700",
       duration: "1-2 Days",
       difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      image:
+        "https://t4.ftcdn.net/jpg/06/29/70/93/360_F_629709390_1LI5fFne2VrDaJTjcLG4UcbySJLLOnqT.jpg",
     },
     {
       id: "high-altitude",
@@ -50,7 +54,8 @@ const TrekCategories = () => {
       textColor: "text-purple-700",
       duration: "7-14 Days",
       difficulty: "Challenging",
-      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+      image:
+        "https://www.discoveraltai.com/wp-content/uploads/2023/11/pexels-photo-2450296-1024x769.jpg",
     },
     {
       id: "weekend",
@@ -63,7 +68,8 @@ const TrekCategories = () => {
       textColor: "text-amber-700",
       duration: "2-3 Days",
       difficulty: "Moderate",
-      image: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
+      image:
+        "https://media.istockphoto.com/id/2024101729/photo/four-young-friends-are-enjoying-sunrise-sea-and-islands.jpg?s=612x612&w=0&k=20&c=ahjr7RjYq_kp9FLQXNbAfExQZmCc_oSFS4CLmatHvAA=",
     },
     {
       id: "winter",
@@ -77,7 +83,7 @@ const TrekCategories = () => {
       duration: "3-5 Days",
       difficulty: "Difficult",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8GF3f2ybAjw3UzceqY5SRrQx2kTUEvqyvOQ&s",
+        "https://himalayandaredevils.com/storage/uploads/68b96c71bc5d2.webp",
     },
     {
       id: "camping",
@@ -90,7 +96,8 @@ const TrekCategories = () => {
       textColor: "text-emerald-700",
       duration: "2-4 Days",
       difficulty: "Moderate",
-      image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLj0bNhYpmnbYiqbOwOd04G4zHfmzy2bKj1w&s",
     },
     {
       id: "expedition",
@@ -103,7 +110,8 @@ const TrekCategories = () => {
       textColor: "text-red-700",
       duration: "10-21 Days",
       difficulty: "Expert",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      image:
+        "https://5.imimg.com/data5/AK/MC/EJ/SELLER-48927985/trekking-expedition-all-over-india.jpeg",
     },
     {
       id: "day-treks",
@@ -116,9 +124,11 @@ const TrekCategories = () => {
       textColor: "text-lime-700",
       duration: "4-8 Hours",
       difficulty: "Easy",
-      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      image:
+        "https://media1.thrillophilia.com/filestore/8c4endyet4gv16wx0d1otkevk90l_pexels-saikat-ghosh-914128.jpg?w=400&dpr=2",
     },
   ];
+
   const filterButtons = [
     {
       id: "all",
@@ -130,14 +140,16 @@ const TrekCategories = () => {
     { id: "challenging", label: "Challenging", count: 42 },
     { id: "expert", label: "Expert", count: 12 },
   ];
+
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-10 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full font-semibold mb-4">
-            EXPLORE CATEGORIES
-          </span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-2 rounded-full mb-6 shadow-lg">
+            <Sparkles className="w-5 h-5" />
+            <span className="font-semibold">EXPLORE CATEGORIES</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Find Your Perfect
             <span className="text-emerald-700"> Trek Type</span>
@@ -177,21 +189,22 @@ const TrekCategories = () => {
           {categories.map((category) => (
             <div
               key={category.id}
-              className={`group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer`}
+              className={`group relative bg-emerald-50 rounded-lg overflow-hidden shadow-lg border-4 border-emerald-700 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl  cursor-pointer`}
               onClick={() => setActiveCategory(category.id)}
             >
               {/* Category Image/Background */}
-              <div className="h-40 relative overflow-hidden">
+              <div className="h-50 relative overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/30"></div>{" "}
                 {/* overlay for contrast */}
                 {/* <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-90`}></div> */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white p-4 rounded-full bg-white/20 backdrop-blur-sm">
+                  <div className="text-white p-4 rounded-full bg-black/30">
                     {category.icon}
                   </div>
                 </div>
@@ -205,14 +218,15 @@ const TrekCategories = () => {
                 </div>
                 {/* Count Badge */}
                 <div className="absolute bottom-4 left-4">
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-black/30 text-white text-sm font-semibold rounded-full">
                     {category.count} Treks
                   </span>
                 </div>
               </div>
+
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors duration-300">
+              <div className="p-4">
+                <h3 className="text-xl font-bold font-serif text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
                   {category.title}
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
@@ -223,8 +237,9 @@ const TrekCategories = () => {
                   <Clock className="w-4 h-4 mr-2" />
                   <span className="text-sm">{category.duration}</span>
                 </div>
+
                 {/* CTA */}
-                <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                <div className="flex items-center justify-between pt-1 border-t border-gray-100">
                   <span className="text-sm text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors duration-300">
                     Explore Treks
                   </span>
@@ -238,8 +253,11 @@ const TrekCategories = () => {
             </div>
           ))}
         </div>
+
         {/* Recommended Treks Section */}
+
         {/* Seasonal Categories */}
+
         {/* CTA */}
       </div>
     </section>

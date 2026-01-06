@@ -12,13 +12,12 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-        <UpcomingDepartures />
+      <UpcomingDepartures />
       <PopularTreks />
       <TrekCategories />
       {/* <Booking /> */}
       <FeaturedTreks />
-          <AboutUs />
-    
+      <AboutUs />
 
       {/* <HowItWorks /> */}
       <Gallery />
@@ -26,8 +25,8 @@ const HomePage = () => {
       {/* <SafetySection /> */}
       {/* <WhyChooseUs /> */}
       <FAQs />
- 
-     {/*} <CTASection /> */}
+
+      {/*} <CTASection /> */}
     </>
   );
 };

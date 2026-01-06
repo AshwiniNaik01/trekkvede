@@ -27,10 +27,10 @@ const AboutUs = () => {
             </h1>
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-[#ff7e30] mb-4">
-                Why Choose TrekenTrip
+                Why Choose TrekkVede
               </h2>
               <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-                At TrekenTrip, we blend expert planning, personalized experiences, and local insights to offer unparalleled adventures. Choose us for a journey that's safe, memorable, and tailored just for you.
+                At TrekkVede, we blend expert planning, personalized experiences, and local insights to offer unparalleled adventures. Choose us for a journey that's safe, memorable, and tailored just for you.
               </p>
             </div>
           </div>

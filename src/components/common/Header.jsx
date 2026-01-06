@@ -1,9 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, MapPin, Phone, User } from "lucide-react";
+import {
+  Heart,
+  LogOut,
+  MapPin,
+  Menu,
+  Phone,
+  Star,
+  User,
+  X,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const userMenuRef = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,17 +26,33 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Close dropdown if clicked outside
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Treks", href: "#treks" },
-    { name: "Destinations", href: "#destinations" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Treks", href: "/treks" },
+    // { name: "Destinations", href: "/destinations" },
+    { name: "Gallery", href: "/trek-gallery" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
+
+  const alwaysScrolledPages = ["/trek-gallery", "/wishlist"];
+
+  const isPageScrolledStyle = alwaysScrolledPages.includes(location.pathname);
 
   return (
     <header
@@ -67,7 +98,6 @@ const Header = () => {
             <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
               Book Now
             </button>
-
             <button className="border border-amber-300 text-amber-300 px-4 py-2 rounded-full hover:bg-amber-300/10 transition-colors duration-300">
               <User className="w-5 h-5" />
             </button>
@@ -113,5 +143,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;
