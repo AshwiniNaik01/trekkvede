@@ -29,7 +29,6 @@ const coreValues = [
   "Sustainability",
 ];
 
-// ================= TEAM & FACILITIES DATA =================
 const teamFacilities = [
   {
     icon: <FaFlag className="w-12 h-12 mx-auto text-green-800" />,
@@ -76,7 +75,7 @@ const teamFacilities = [
 // ================= TEAM & FACILITIES COMPONENT =================
 const TeamFacilitiesSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 bg-gradient-to-br from-white via-emerald-50 to-white">
+    <section className="max-w-7xl mx-auto px-6 py-6 bg-gradient-to-br from-white via-emerald-50 to-white">
       <h2 className="text-4xl font-bold text-center text-green-800 mb-12">
         Team and Facilities
       </h2>
@@ -141,33 +140,36 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* ================= ABOUT CONTENT ================= */}
-      <section className="relative py-28 bg-gradient-to-br from-white via-emerald-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative py-16 bg-gradient-to-br from-white via-emerald-50 to-emerald-100 overflow-hidden">
+        {/* Decorative blurred blobs */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-200 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-300 rounded-full blur-3xl opacity-20" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-28 items-center">
             {/* -------- LEFT CONTENT -------- */}
             <div>
-              <span className="text-sm uppercase tracking-widest text-green-600 font-semibold">
-                About TrekkVede
+              <span className="inline-block text-sm uppercase tracking-widest text-emerald-700 font-semibold bg-emerald-100 px-4 py-1 rounded-full">
+                About TrekVede
               </span>
 
-              <h2 className="text-5xl font-extrabold text-gray-900 mt-4 leading-tight">
-                Who We Are
+              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mt-6 leading-tight">
+                Who <span className="text-emerald-700">We Are</span>
               </h2>
 
               {/* Accent line */}
-              <div className="w-20 h-1 bg-green-600 mt-6 rounded-full" />
+              <div className="w-24 h-1.5 bg-emerald-600 mt-6 rounded-full" />
 
-              <p className="text-gray-600 mt-8 leading-relaxed text-lg">
+              <p className="text-gray-700 mt-10 leading-relaxed text-lg">
                 TrekVede is a premium trekking platform crafted for explorers
                 who crave authentic Himalayan adventures. We are not just a
-                trekking company—we are a community of passionate mountaineers,
-                nature lovers, and travel professionals who believe that the
-                mountains are best experienced with respect, responsibility, and
-                preparation.
+                trekking company — we are a community of passionate
+                mountaineers, nature lovers, and travel professionals who
+                believe that the mountains are best experienced with respect,
+                responsibility, and preparation.
               </p>
 
-              <p className="text-gray-600 mt-6 leading-relaxed text-lg">
+              <p className="text-gray-700 mt-6 leading-relaxed text-lg">
                 Founded with a vision to redefine trekking standards in India,
                 TrekVede bridges the gap between adventure and professionalism.
                 Every trek we design is thoughtfully curated, blending raw
@@ -177,23 +179,29 @@ const AboutUsPage = () => {
             </div>
 
             {/* -------- RIGHT IMAGES -------- */}
-            <div className="relative">
+            <div className="relative group">
               {/* Main Image */}
               <img
                 src="/Sample1.heic"
                 alt="Trekking Adventure"
-                className="rounded-3xl shadow-2xl w-full object-cover"
+                className="rounded-3xl shadow-2xl w-full object-cover
+          transform group-hover:scale-[1.02] transition duration-700"
               />
 
               {/* Overlapping Image */}
               <img
                 src="/Sample1.heic"
                 alt="Himalayan Trek"
-                className="absolute -bottom-20 -left-20 w-72 h-72 bg-amber-00  object-cover rounded-3xl shadow-xl border-8 border-white hidden md:block"
+                className="absolute -bottom-20 -left-20 w-72 h-72 object-cover
+          rounded-3xl shadow-2xl border-8 border-white
+          hidden md:block transform group-hover:rotate-1 transition duration-700"
               />
 
               {/* Floating Badge */}
-              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur px-6 py-4 rounded-2xl shadow-lg">
+              <div
+                className="absolute top-6 right-6 bg-white/70 backdrop-blur-lg
+        px-6 py-4 rounded-2xl shadow-xl border border-white/60"
+              >
                 <p className="text-sm text-gray-500">Trusted by</p>
                 <p className="text-xl font-bold text-gray-900">
                   Adventure Lovers
@@ -205,103 +213,153 @@ const AboutUsPage = () => {
       </section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section className="w-full min-h-screen px-6 py-20 bg-gray-50 bg-gradient-to-br from-white via-emerald-50 to-white">
-        <h2 className="text-4xl font-bold text-center text-green-800">
-          Why Choose TrekVede
-        </h2>
+      <section className="w-full py-14 px-6 bg-gradient-to-br from-emerald-50 via-white to-emerald-100 relative overflow-hidden">
+        {/* Decorative blur */}
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-emerald-200/40 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-green-300/30 rounded-full blur-3xl"></div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch h-full">
-          {/* Left Column */}
-          <div className="grid gap-6">
-            <div className="bg-green-800 text-white rounded-2xl p-6 flex items-start gap-4 h-full">
-              <div className="text-2xl">🌞</div>
-              <div>
-                <h3 className="font-semibold">Certified Trek Leaders</h3>
-                <p className="text-sm mt-1">
-                  Trained in mountaineering, safety & first aid.
-                </p>
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <h2 className="text-4xl font-extrabold text-green-800">
+            Why Choose TrekVede
+          </h2>
+
+          <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+            Experience the Himalayas with safety, sustainability and expert
+            guidance
+          </p>
+
+          {/* CONTENT GRID */}
+          <div className="mt-10 grid lg:grid-cols-3 gap-8 items-center justify-center">
+            {/* LEFT CARDS */}
+            <div className="grid gap-5">
+              <div className="bg-green-800 text-white rounded-2xl p-5 flex gap-4 shadow-lg hover:-translate-y-1 transition justify-center text-left">
+                <div className="text-2xl">🌞</div>
+                <div>
+                  <h3 className="font-semibold text-lg">
+                    Certified Trek Leaders
+                  </h3>
+                  <p className="text-sm mt-1 text-green-100">
+                    Trained in mountaineering, safety & first aid.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white text-gray-900 rounded-2xl p-5 flex gap-4 border border-gray-200 shadow hover:-translate-y-1 transition justify-center text-left">
+                <div className="text-2xl">⏰</div>
+                <div>
+                  <h3 className="font-semibold text-lg">Safety First</h3>
+                  <p className="text-sm mt-1 text-gray-600">
+                    Medical kits, oxygen cylinders & protocols.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="bg-white text-gray-900 rounded-2xl p-6 flex items-start gap-4 border border-gray-200 h-full">
-              <div className="text-2xl">⏰</div>
-              <div>
-                <h3 className="font-semibold">Safety First</h3>
-                <p className="text-sm mt-1">
-                  Medical kits, oxygen cylinders & protocols.
-                </p>
+
+            {/* CENTER IMAGE */}
+            <div className="flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white max-w-sm">
+                <img
+                  src="/Demo1.webp"
+                  alt="Trekking"
+                  className="w-full h-[300px] object-cover hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-black/10"></div>
               </div>
             </div>
-          </div>
 
-          {/* Center Image */}
-          <div className="row-span-2 h-full">
-            <img
-              src="/Demo1.webp"
-              alt="Trekking"
-              className="rounded-2xl w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Right Column */}
-          <div className="grid gap-6">
-            <div className="bg-green-800 text-white rounded-2xl p-6 flex items-start gap-4 h-full">
-              <div className="text-2xl">📅</div>
-              <div>
-                <h3 className="font-semibold">Eco-Friendly Treks</h3>
-                <p className="text-sm mt-1">
-                  Responsible trekking & sustainability.
-                </p>
+            {/* RIGHT CARDS */}
+            <div className="grid gap-5">
+              <div className="bg-emerald-700 text-white rounded-2xl p-5 flex gap-4 shadow-lg hover:-translate-y-1 transition justify-center text-left">
+                <div className="text-2xl">📅</div>
+                <div>
+                  <h3 className="font-semibold text-lg">Eco-Friendly Treks</h3>
+                  <p className="text-sm mt-1 text-emerald-100">
+                    Responsible trekking & sustainability.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="bg-black text-white rounded-2xl p-6 flex items-start gap-4 h-full">
-              <div className="text-2xl">⚙️</div>
-              <div>
-                <h3 className="font-semibold">Custom Itineraries</h3>
-                <p className="text-sm mt-1">
-                  Tailor-made experiences for all levels.
-                </p>
+
+              <div className="bg-gray-900 text-white rounded-2xl p-5 flex gap-4 shadow-lg hover:-translate-y-1 transition justify-center text-left">
+                <div className="text-2xl">⚙️</div>
+                <div>
+                  <h3 className="font-semibold text-lg">Custom Itineraries</h3>
+                  <p className="text-sm mt-1 text-gray-300">
+                    Tailor-made experiences for all levels.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div className="mt-20 bg-gradient-to-r from-emerald-700 to-emerald-600 rounded-2xl p-8 text-white">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div className="text-4xl font-bold mb-2">10K+</div>
-            <div className="text-emerald-100">Happy Trekkers</div>
+
+      <div className="relative bg-gradient-to-r from-emerald-700 via-emerald-600 to-green-700 rounded-3xl p-10 text-white overflow-hidden shadow-2xl">
+        {/* Soft glow background */}
+        <div className="absolute -top-24 -left-24 w-80 h-80 bg-emerald-300/30 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-green-400/30 rounded-full blur-3xl"></div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
+            <div className="text-5xl font-extrabold mb-2">10K+</div>
+            <div className="text-emerald-100 font-semibold">Happy Trekkers</div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold mb-2">150+</div>
-            <div className="text-emerald-100">Treks Completed</div>
+
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
+            <div className="text-5xl font-extrabold mb-2">150+</div>
+            <div className="text-emerald-100 font-semibold">
+              Treks Completed
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold mb-2">98%</div>
-            <div className="text-emerald-100">Success Rate</div>
+
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
+            <div className="text-5xl font-extrabold mb-2">98%</div>
+            <div className="text-emerald-100 font-semibold">Success Rate</div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold mb-2">15</div>
-            <div className="text-emerald-100">Countries Covered</div>
+
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
+            <div className="text-5xl font-extrabold mb-2">15</div>
+            <div className="text-emerald-100 font-semibold">
+              Countries Covered
+            </div>
           </div>
         </div>
       </div>
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-gradient-to-br from-white via-emerald-50 to-white">
-        <h2 className="text-4xl font-bold text-center text-green-800 mb-12">
+
+      <section className="max-w-7xl mx-auto px-6 py-20 bg-white">
+        {/* Title */}
+        <h2 className="text-4xl font-extrabold text-center text-green-800 mb-16">
           Our Core Values
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-          {coreValues.map((value, i) => (
+        {/* Values Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-10">
+          {[
+            "Customer care",
+            "Integrity",
+            "Professionalism",
+            "Teamwork",
+            "Safety",
+            "Reliability & Flexibility",
+            "Efficiency",
+            "Excellence",
+            "Quality",
+            "Sustainability",
+          ].map((value, i) => (
             <div
               key={i}
-              className="core_values_col  bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition"
+              className="
+          bg-gradient-to-r from-green-700 to-emerald-600
+          text-white rounded-xl px-7 py-4
+          text-lg font-semibold
+          shadow-[12px_16px_20px_rgba(0,0,0,0.50)]
+          hover:-translate-y-1 hover:shadow-[10px_14px_24px_rgba(0,0,0,0.55)]
+          transition-all duration-300
+        "
             >
-              <p className="text-lg md:text-xl font-semibold text-gray-900">
-                <span className="text-green-800 mr-2">
-                  {i + 1 < 10 ? `0${i + 1}` : i + 1}
-                </span>
-                {value}
-              </p>
+              <span className="font-extrabold mr-2">
+                {i + 1 < 10 ? `0${i + 1}` : i + 1}
+              </span>
+              {value}
             </div>
           ))}
         </div>
