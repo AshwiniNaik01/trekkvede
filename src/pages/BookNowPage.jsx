@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Calendar, User, Phone } from "lucide-react";
+import BookNowModal from "../components/modals/BookNowModal";
 
 const BookNowPage = () => {
-  const treks = ["Kedarkantha", "Har Ki Dun", "Valley of Flowers", "Triund"];
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="bg-gradient-to-b from-white to-emerald-50 min-h-screen">
+      <BookNowModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
       {/* ================= HERO ================= */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <img
@@ -26,7 +28,7 @@ const BookNowPage = () => {
 
           {/* Book Now Button */}
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsModalOpen(true)}
             className="mt-8 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
           >
             Book Now
@@ -59,65 +61,6 @@ const BookNowPage = () => {
           ))}
         </div>
       </section>
-
-      {/* ================= MODAL ================= */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-4xl w-full relative">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold"
-            >
-              &times;
-            </button>
-
-            <h2 className="text-3xl font-semibold text-emerald-700 mb-8 text-center">
-              Fill Your Details
-            </h2>
-
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition"
-              />
-              <input
-                type="text"
-                placeholder="Phone Number"
-                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition"
-              />
-              <select className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition">
-                <option disabled selected>
-                  Select Trek
-                </option>
-                {treks.map((trek, i) => (
-                  <option key={i}>{trek}</option>
-                ))}
-              </select>
-              <input
-                type="date"
-                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition"
-              />
-              <input
-                type="number"
-                placeholder="Number of Participants"
-                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm hover:shadow-md transition"
-              />
-              <button
-                type="submit"
-                className="md:col-span-2 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition"
-              >
-                Book Now
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* ================= TAILWIND CUSTOM ANIMATIONS ================= */}
       <style>

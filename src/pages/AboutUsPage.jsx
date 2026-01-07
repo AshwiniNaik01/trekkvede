@@ -9,24 +9,29 @@ import {
   FaCampground,
   FaCar,
 } from "react-icons/fa";
+import {
+  Heart,
+  ShieldCheck,
+  Briefcase,
+  Users,
+  Clock,
+  Zap,
+  Star,
+  Award,
+  Leaf,
+  Smile,
+  Map,
+  Globe,
+  TrendingUp,
+  ThumbsUp,
+  CheckCircle,
+  Gem
+} from "lucide-react";
 
 const heroCards = [
   { img: "/demo2.webp", delay: "delay-0" },
   { img: "/image2.jpg", delay: "delay-300" },
   { img: "/Demo1.webp", delay: "delay-600" },
-];
-
-const coreValues = [
-  "Customer care",
-  "Integrity",
-  "Professionalism",
-  "Teamwork",
-  "Safety",
-  "Reliability & Flexibility",
-  "Efficiency",
-  "Excellence",
-  "Quality",
-  "Sustainability",
 ];
 
 const teamFacilities = [
@@ -100,18 +105,18 @@ const TeamFacilitiesSection = () => {
 // ================= ABOUT US PAGE =================
 const AboutUsPage = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 font-sans selection:bg-emerald-100 selection:text-emerald-900">
       {/* ================= HERO SECTION ================= */}
       <section className="relative h-[85vh] overflow-hidden">
         <img
           src="./about.jpg"
-          className="absolute inset-0 w-full h-full object-cover scale-110"
+          className="absolute inset-0 w-full h-full object-cover animate-[slowzoom_20s_ease-in-out_infinite]"
           alt="TrekVede"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
 
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-5xl md:text-5xl font-serif text-white tracking-wide">
+          <h1 className="text-5xl md:text-5xl font-bold text-white tracking-wide">
             TrekkVede
           </h1>
           <p className="text-xl md:text-2xl text-yellow-400  mt-8 font-semibold">
@@ -139,9 +144,10 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* ================= INTRO SECTION ================= */}
       <section className="relative py-16 bg-gradient-to-br from-white via-emerald-50 to-emerald-100 overflow-hidden">
         {/* Decorative blurred blobs */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-200 rounded-full blur-3xl opacity-30" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-200 rounded-full blur-3xl opacity-30 animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-300 rounded-full blur-3xl opacity-20" />
 
         <div className="relative max-w-7xl mx-auto px-6">
@@ -221,10 +227,8 @@ const AboutUsPage = () => {
           <h2 className="text-4xl font-extrabold text-green-800">
             Why Choose TrekVede
           </h2>
-
           <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-            Experience the Himalayas with safety, sustainability and expert
-            guidance
+            Experience the Himalayas with safety, sustainability and expert guidance
           </p>
 
           {/* CONTENT GRID */}
@@ -292,80 +296,112 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      <div className="relative bg-gradient-to-r from-emerald-700 via-emerald-600 to-green-700 rounded-3xl p-10 text-white overflow-hidden shadow-2xl">
-        {/* Soft glow background */}
-        <div className="absolute -top-24 -left-24 w-80 h-80 bg-emerald-300/30 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-green-400/30 rounded-full blur-3xl"></div>
+      {/* ================= STATS SECTION ================= */}
+      <div className="relative max-w-7xl mx-auto -mt-10 mb-20 px-6 z-20">
+        {/* Animated Background Blobs */}
+        <div className="absolute top-10 left-20 w-32 h-32 bg-emerald-300 rounded-full blur-2xl opacity-40 animate-pulse delay-75"></div>
+        <div className="absolute bottom-10 right-20 w-32 h-32 bg-blue-300 rounded-full blur-2xl opacity-40 animate-pulse delay-300"></div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
-            <div className="text-5xl font-extrabold mb-2">10K+</div>
-            <div className="text-emerald-100 font-semibold">Happy Trekkers</div>
-          </div>
-
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
-            <div className="text-5xl font-extrabold mb-2">150+</div>
-            <div className="text-emerald-100 font-semibold">
-              Treks Completed
+        <div className="relative bg-white/90 backdrop-blur-xl border border-emerald-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-3xl p-10 flex flex-wrap justify-around items-center gap-8">
+          <div className="text-center group cursor-default">
+            <div className="w-12 h-12 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-sm border border-emerald-100">
+              <Smile className="w-6 h-6 text-emerald-600" />
             </div>
+            <div className="text-4xl font-black text-gray-900 mb-1">10K+</div>
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Happy Trekkers</div>
           </div>
-
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
-            <div className="text-5xl font-extrabold mb-2">98%</div>
-            <div className="text-emerald-100 font-semibold">Success Rate</div>
-          </div>
-
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition duration-500">
-            <div className="text-5xl font-extrabold mb-2">15</div>
-            <div className="text-emerald-100 font-semibold">
-              Countries Covered
+          <div className="hidden md:block w-px h-16 bg-gray-200"></div>
+          <div className="text-center group cursor-default">
+            <div className="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300 shadow-sm border border-blue-100">
+              <Map className="w-6 h-6 text-blue-600" />
             </div>
+            <div className="text-4xl font-black text-gray-900 mb-1">150+</div>
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Treks Completed</div>
+          </div>
+          <div className="hidden md:block w-px h-16 bg-gray-200"></div>
+          <div className="text-center group cursor-default">
+            <div className="w-12 h-12 mx-auto bg-amber-50 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-sm border border-amber-100">
+              <TrendingUp className="w-6 h-6 text-amber-600" />
+            </div>
+            <div className="text-4xl font-black text-gray-900 mb-1">98%</div>
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Success Rate</div>
+          </div>
+          <div className="hidden md:block w-px h-16 bg-gray-200"></div>
+          <div className="text-center group cursor-default">
+            <div className="w-12 h-12 mx-auto bg-rose-50 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300 shadow-sm border border-rose-100">
+              <Globe className="w-6 h-6 text-rose-600" />
+            </div>
+            <div className="text-4xl font-black text-gray-900 mb-1">15</div>
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Countries Covered</div>
           </div>
         </div>
       </div>
 
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-white">
-        {/* Title */}
-        <h2 className="text-4xl font-extrabold text-center text-green-800 mb-16">
-          Our Core Values
-        </h2>
+      {/* ================= CORE VALUES ================= */}
+      <section className="relative px-6 pb-10 pt-6 overflow-hidden bg-gray-50">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#059669 1px, transparent 1px)", backgroundSize: "30px 30px" }}></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-emerald-100/40 to-transparent rounded-full blur-3xl -z-0 pointer-events-none" />
 
-        {/* Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-10">
-          {[
-            "Customer care",
-            "Integrity",
-            "Professionalism",
-            "Teamwork",
-            "Safety",
-            "Reliability & Flexibility",
-            "Efficiency",
-            "Excellence",
-            "Quality",
-            "Sustainability",
-          ].map((value, i) => (
-            <div
-              key={i}
-              className="
-          bg-gradient-to-r from-green-700 to-emerald-600
-          text-white rounded-xl px-7 py-4
-          text-lg font-semibold
-          shadow-[12px_16px_20px_rgba(0,0,0,0.50)]
-          hover:-translate-y-1 hover:shadow-[10px_14px_24px_rgba(0,0,0,0.55)]
-          transition-all duration-300
-        "
-            >
-              <span className="font-extrabold mr-2">
-                {i + 1 < 10 ? `0${i + 1}` : i + 1}
-              </span>
-              {value}
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm">Our DNA</span>
+            <h2 className="text-4xl font-extrabold text-gray-900 mt-2">What Drives Us</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { title: "Customer Care", icon: Heart },
+              { title: "Integrity", icon: ShieldCheck },
+              { title: "Professionalism", icon: Briefcase },
+              { title: "Teamwork", icon: Users },
+              { title: "Safety", icon: CheckCircle },
+              { title: "Reliability", icon: ThumbsUp },
+              { title: "Efficiency", icon: Zap },
+              { title: "Excellence", icon: Star },
+              { title: "Quality", icon: Gem },
+              { title: "Sustainability", icon: Leaf },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative p-1 rounded-2xl bg-white hover:bg-emerald-50/50 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer border border-gray-100 hover:border-emerald-200"
+              >
+                <div className="relative h-full rounded-xl p-6 flex flex-col items-center justify-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50/50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4 group-hover:bg-emerald-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-sm">
+                    <item.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-gray-700 group-hover:text-emerald-900 transition-colors">{item.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================= TEAM & FACILITIES ================= */}
       <TeamFacilitiesSection />
+
+      {/* Custom Styles for Animations */}
+      <style>{`
+        @keyframes slowzoom {
+          0%, 100% { transform: scale(1.1); }
+          50% { transform: scale(1.25); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slideUp {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        .delay-0 { animation-delay: 0ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-600 { animation-delay: 600ms; }
+      `}</style>
     </div>
   );
 };

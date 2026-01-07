@@ -1,3 +1,4 @@
+import { Sparkles } from 'lucide-react';
 import React, { useState } from 'react';
 import {
   GiMountaintop,
@@ -78,7 +79,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <section className="py-10 bg-gray-50 relative overflow-hidden">
       {/* Background Patterns */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <GiPineTree className="absolute -left-10 bottom-20 text-green-900 w-96 h-96 transform -rotate-12" />
@@ -89,8 +90,12 @@ const Features = () => {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-sm font-bold tracking-wide uppercase">
-            Why Choose TrekkVede
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white px-6 py-2 rounded-full mb-6 shadow-lg">
+            <Sparkles className="w-6 h-6" />
+            <span className="font-bold tracking-wide text-sm">
+              WHY CHOOSE TREKKVEDE
+            </span>
+            {/* <Mountain className="w-6 h-6" /> */}
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
             Redefining Your <br />
@@ -111,55 +116,81 @@ const Features = () => {
               key={index}
               onMouseEnter={() => setActiveFeature(index)}
               className={`
-                group relative bg-white rounded-lg p-4 flex flex-col justify-center items-center
-                transition-all duration-500 ease-out
-                hover:-translate-y-2
-                ${activeFeature === index ? 'shadow-2xl shadow-amber-900/10 scale-[1.02]' : 'shadow-lg shadow-gray-200/50'}
+                group relative rounded-2xl p-[3px] 
+                transition-all duration-500 ease-out hover:-translate-y-2
+                ${activeFeature === index ? 'scale-[1.02]' : ''}
               `}
             >
-              {/* Card Corner Accent */}
-              <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${feature.bgGradient} opacity-50 rounded-bl-[4rem] rounded-tr-[2rem] transition-all duration-500 group-hover:scale-150 group-hover:opacity-100`} />
+              {/* Animated Gradient Border (visible on hover) */}
+              <div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-[length:400%_400%] 
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-flow"
+              />
 
-              {/* Icon Container */}
-              <div className="relative flex justify-center mb-8 inline-block">
-                <div className={`
-                  relative z-10 w-20 h-20 flex items-center justify-center 
-                  rounded-2xl text-white shadow-lg transform rotate-3
-                  transition-transform duration-500 group-hover:rotate-6
-                  ${feature.accent}
-                `}>
-                  {feature.icon}
+              {/* Default Border/Shadow (visible when not hovering) */}
+              <div className={`
+                absolute inset-0 rounded-2xl border-3 border-emerald-700 bg-white
+                group-hover:opacity-0 transition-opacity duration-500
+                ${activeFeature === index ? 'shadow-2xl shadow-amber-900/10' : 'shadow-lg shadow-gray-200/50'}
+              `} />
+
+              {/* Main Content Wrapper */}
+              <div className="relative h-full w-full bg-white rounded-xl p-6 flex flex-col justify-center items-center overflow-hidden z-10">
+                {/* Card Corner Accent */}
+                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${feature.bgGradient} opacity-50 rounded-bl-[4rem] rounded-tr-[2rem] transition-all duration-500 group-hover:scale-150 group-hover:opacity-100`} />
+
+                {/* Icon Container */}
+                <div className="relative flex justify-center mb-8 inline-block">
+                  <div className={`
+                    relative z-10 w-20 h-20 flex items-center justify-center 
+                    rounded-2xl text-white shadow-lg transform rotate-3
+                    transition-transform duration-500 group-hover:rotate-6
+                    ${feature.accent}
+                  `}>
+                    {feature.icon}
+                  </div>
+                  {/* Decorative blob behind icon */}
+                  <div className={`
+                      absolute inset-0 bg-gray-900 opacity-10 rounded-2xl 
+                      transform -rotate-6 translate-y-2 scale-90 z-0
+                      transition-transform duration-500 group-hover:-rotate-3
+                  `} />
                 </div>
-                {/* Decorative blob behind icon */}
-                <div className={`
-                    absolute inset-0 bg-gray-900 opacity-10 rounded-2xl 
-                    transform -rotate-6 translate-y-2 scale-90 z-0
-                    transition-transform duration-500 group-hover:-rotate-3
-                `} />
-              </div>
 
-              {/* Text Content */}
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">
-                  {feature.title}
-                </h3>
-                {/* <p className="text-gray-500 mb-6 leading-relaxed">
-                  {feature.description}
-                </p> */}
+                {/* Text Content */}
+                <div className="relative z-10 text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-500 mb-6 leading-relaxed">
+                    {feature.description}
+                  </p>
 
-                {/* Stats Badge */}
-                {/* <div className={`
-                  inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm font-semibold
-                  bg-gray-50 text-gray-600 group-hover:bg-amber-50 group-hover:text-amber-700
-                  transition-colors duration-300
-                `}>
-                  <div className={`w-1.5 h-1.5 rounded-full ${feature.accent}`} />
-                  {feature.stats}
-                </div> */}
+                  {/* Stats Badge - Optional, keeping commented structure if user wants it back or enabled */}
+                  {/* <div className={`
+                    inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm font-semibold
+                    bg-gray-50 text-gray-600 group-hover:bg-amber-50 group-hover:text-amber-700
+                    transition-colors duration-300
+                  `}>
+                    <div className={`w-1.5 h-1.5 rounded-full ${feature.accent}`} />
+                    {feature.stats}
+                  </div> */}
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        <style>{`
+          @keyframes border-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-border-flow {
+            animation: border-flow 3s ease infinite;
+          }
+        `}</style>
       </div>
     </section>
   );

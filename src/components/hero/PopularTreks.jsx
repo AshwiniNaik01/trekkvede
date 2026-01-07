@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from "react";
 import { HiKey } from "react-icons/hi";
 import WishlistCard from "../wishlist/WishlistCard";
+import BookNowModal from "../modals/BookNowModal";
 
 const PopularTreks = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,6 +30,7 @@ const PopularTreks = () => {
   // const [activeIndex, setActiveIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
+  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
   const placeholders = [
     "Search treks like Kedarkantha, Everest...",
@@ -273,7 +275,15 @@ const PopularTreks = () => {
   };
 
   return (
-    <section className="relative min-h-screen py-6 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+    <section
+      id="treks"
+      className="relative min-h-screen py-6 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-amber-50"
+    >
+      <BookNowModal
+        isOpen={isBookModalOpen}
+        onClose={() => setIsBookModalOpen(false)}
+      />
+
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-emerald-200/20 to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-200/20 to-transparent rounded-full translate-x-48 translate-y-48"></div>
