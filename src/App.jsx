@@ -6,7 +6,10 @@ import HomePage from "./pages/home/HomePage";
 import TrackPage from "./pages/TrackPage";
 import TrekGallery from "./components/track/TrekGallery";
 import WishlistPage from "./pages/WishlistPage";
+import AboutUs from "./components/hero/AboutUs";
 import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import BookNowPage from "./pages/BookNowPage";
 
 function App() {
   return (
@@ -15,10 +18,12 @@ function App() {
         {/* Layout wrapper */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} /> {/* Home page */}
-          <Route path="/trek" element={<TrackPage />} />
+          <Route path="/treks" element={<TrackPage />} />
           <Route path="/trek-gallery" element={<TrekGallery />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/book-now" element={<BookNowPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

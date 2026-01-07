@@ -140,9 +140,9 @@ const TrekCategories = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-2 rounded-full mb-6 shadow-lg">
-                      <Sparkles className="w-5 h-5" />
-                      <span className="font-semibold">EXPLORE CATEGORIES</span>
-                    </div>
+            <Sparkles className="w-5 h-5" />
+            <span className="font-semibold">EXPLORE CATEGORIES</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Find Your Perfect
             <span className="text-emerald-700"> Trek Type</span>
@@ -159,19 +159,17 @@ const TrekCategories = () => {
             <button
               key={filter.id}
               onClick={() => setActiveCategory(filter.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                activeCategory === filter.id
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${activeCategory === filter.id
                   ? "bg-emerald-600 text-white shadow-lg"
                   : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-              }`}
+                }`}
             >
               {filter.label}
               <span
-                className={`ml-2 px-2 py-1 text-xs rounded-full ${
-                  activeCategory === filter.id
+                className={`ml-2 px-2 py-1 text-xs rounded-full ${activeCategory === filter.id
                     ? "bg-emerald-500"
                     : "bg-gray-100 text-gray-600"
-                }`}
+                  }`}
               >
                 {filter.count}
               </span>
