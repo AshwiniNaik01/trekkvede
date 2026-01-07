@@ -72,7 +72,6 @@ const teamFacilities = [
   },
 ];
 
-// ================= TEAM & FACILITIES COMPONENT =================
 const TeamFacilitiesSection = () => {
   return (
     <section className="max-w-7xl mx-auto px-6 py-6 bg-gradient-to-br from-white via-emerald-50 to-white">
