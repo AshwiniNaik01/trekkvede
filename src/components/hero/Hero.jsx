@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-20 relative">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center bg-amber-500/20 backdrop-blur-sm border border-amber-300/30 rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center bg-amber-500/20 backdrop-blur-sm border border-amber-300/30 rounded-full px-4 py-2 my-4">
             <Shield className="w-4 h-4 text-amber-300 mr-2" />
             <span className="text-amber-100 text-sm font-medium">
               Trusted by 10,000+ Adventurers
