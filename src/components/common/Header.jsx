@@ -24,6 +24,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
 
     // Close dropdown if clicked outside
@@ -39,6 +40,7 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Treks", href: "/treks" },
@@ -54,8 +56,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || isPageScrolledStyle
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
           ? "bg-emerald-900/95 backdrop-blur-md py-3 shadow-lg"
           : "bg-transparent py-5"
       }`}
@@ -72,6 +74,7 @@ const Header = () => {
               <p className="text-xs text-amber-300">Adventure Awaits</p>
             </div>
           </div>
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -84,7 +87,8 @@ const Header = () => {
               </a>
             ))}
           </nav>
-          {/* Contact Info & CTA */}
+
+          {/* Contact + CTA */}
           <div className="hidden lg:flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4 text-amber-300" />
@@ -98,6 +102,7 @@ const Header = () => {
               <User className="w-5 h-5" />
             </button>
           </div>
+
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white"
@@ -110,6 +115,7 @@ const Header = () => {
             )}
           </button>
         </div>
+
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 bg-emerald-800/95 backdrop-blur-md rounded-lg p-4">
@@ -124,6 +130,7 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
+
               <div className="pt-4 border-t border-emerald-700">
                 <button className="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                   Book Your Adventure

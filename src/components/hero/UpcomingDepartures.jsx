@@ -256,7 +256,7 @@ const UpcomingDepartures = () => {
   const toggleAutoPlay = () => setIsPlaying(!isPlaying);
 
   return (
-    <section className="py-4 bg-gradient-to-b from-gray-50 to-emerald-50 relative overflow-hidden">
+    <section className="py-8 bg-gradient-to-b from-gray-50 to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-74 h-74 bg-emerald-200/20 rounded-full blur-3xl"></div>

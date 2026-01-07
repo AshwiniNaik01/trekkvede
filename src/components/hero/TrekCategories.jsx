@@ -221,7 +221,7 @@ const TrekCategories = () => {
 
               {/* Content */}
               <div className="p-4">
-                <h3 className="text-xl font-bold font-serif text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
                   {category.title}
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">

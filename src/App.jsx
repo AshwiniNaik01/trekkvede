@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // ✅ Use BrowserRouter
-import './App.css';
-import Layout from './components/layout/Layout';
-import Hero from './components/hero/Hero';
-import HomePage from './pages/home/HomePage';
-import TrackPage from './pages/TrackPage';
-import TrekGallery from './components/track/TrekGallery';
-import WishlistPage from './pages/WishlistPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // ✅ Use BrowserRouter
+import "./App.css";
+import Layout from "./components/layout/Layout";
+import Hero from "./components/hero/Hero";
+import HomePage from "./pages/home/HomePage";
+import TrackPage from "./pages/TrackPage";
+import TrekGallery from "./components/track/TrekGallery";
+import WishlistPage from "./pages/WishlistPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         {/* Layout wrapper */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} /> {/* Home page */}
-            <Route path="/trek" element={<TrackPage />}/>
-             <Route path="/trek-gallery" element={<TrekGallery />}/>
-              <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/trek" element={<TrackPage />} />
+          <Route path="/trek-gallery" element={<TrekGallery />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

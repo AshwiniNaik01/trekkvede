@@ -46,7 +46,6 @@ const TrekIntroCard = () => {
           </div>
         </div>
 
-        {/* ACTION BUTTONS */}
         <div className="flex flex-wrap gap-3 mt-5">
           <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-100">
             <MapPin size={16} /> Trek Route
