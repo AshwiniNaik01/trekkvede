@@ -13,6 +13,7 @@ const ContactUsPage = () => {
           className="absolute inset-0 w-full h-full object-cover scale-110 animate-[slowzoom_20s_ease-in-out_infinite]"
         />
 
+      
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50"></div>
 
