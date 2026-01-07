@@ -15,7 +15,7 @@
 
 // components/Gallery.jsx
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, X } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -42,21 +42,25 @@ const Gallery = () => {
       category: "Base Camp"
     },
     {
-      url: "https://images.unsplash.com/photo-1536152471326-642d946b4f6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
-      category: "Sunrise"
+      url: "https://images.pexels.com/photos/914128/pexels-photo-914128.jpeg?cs=srgb&dl=pexels-saikat-ghosh-323099-914128.jpg&fm=jpg",
+      category: "Himalayans"
     }
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-emerald-50 to-white">
+    <section id="gallery" className="py-6 bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full font-semibold mb-4">
-            GALLERY
-          </span>
+         <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-6 py-2 rounded-full mb-6 shadow-lg">
+            <Sparkles className="w-6 h-6" />
+            <span className="font-bold tracking-wide text-sm">
+             GALLERY
+            </span>
+            {/* <Mountain className="w-6 h-6" /> */}
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Moments of
-            <span className="text-emerald-700"> Adventure</span>
+            <span className="text-emerald-700"> Adventure</span>  
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Capture the breathtaking beauty of mountains through the lens of our adventurers

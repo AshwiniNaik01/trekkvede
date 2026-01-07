@@ -1,3 +1,5 @@
+import AboutUs from "../../components/hero/AboutUs";
+import FAQs from "../../components/hero/FAQs";
 import FeaturedTreks from "../../components/hero/FeaturedTreks";
 import Gallery from "../../components/hero/Gallery";
 import Hero from "../../components/hero/Hero";
@@ -10,21 +12,21 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-        <UpcomingDepartures />
+      <UpcomingDepartures />
       <PopularTreks />
       <TrekCategories />
       {/* <Booking /> */}
       <FeaturedTreks />
-    
+      <AboutUs />
 
       {/* <HowItWorks /> */}
       <Gallery />
       <Testimonials />
       {/* <SafetySection /> */}
       {/* <WhyChooseUs /> */}
-      {/* <FAQs />
-      <AboutUs />
-      <CTASection /> */}
+      <FAQs />
+
+      {/*} <CTASection /> */}
     </>
   );
 };
