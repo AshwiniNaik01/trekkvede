@@ -261,22 +261,15 @@
 
 // export default TrekCategories;
 
-
 import {
   ArrowRight,
   Clock,
-  Compass,
-  Mountain,
-  Snowflake,
   Sparkles,
-  Sun,
-  Tent,
-  Users,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import axios from "axios";
-// import { UPLOAD_PATHS } from "../constants"; // Assuming you have this for images
-import { API_BASE_URL, DIR } from "../../config/constants";
+// import { fetchTrekCategories } from "../../api/trekCategoryApi";
+import { DIR } from "../../config/constants";
+import { fetchTrekCategories } from "./trekCategoryApi";
 
 const TrekCategories = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -284,43 +277,40 @@ const TrekCategories = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch categories from API
   useEffect(() => {
-    const fetchCategories = async () => {
+    const loadCategories = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${API_BASE_URL}/api/trekCategory`);
-        if (response.data && response.data.message) {
-          // Map API response to match UI props
-          const mappedCategories = response.data.message.map((cat) => ({
-            id: cat.categoryId,
-            title: cat.title,
-            description: cat.description,
-            icon: <Sparkles className="w-8 h-8" />, // Default icon; you can customize per category
-            count: cat.trekCount || 0,
-            gradient: "from-green-400 to-emerald-500", // Default gradient
-            bgColor: "bg-green-50",
-            textColor: "text-green-700",
-            duration: "1-3 Days", // Default value; adjust if available from API
-            difficulty: cat.difficulty || "Easy",
-            image: `${DIR.CategoryImage}${cat.catImage}`, // Dynamic image path
-          }));
-          setCategories(mappedCategories);
-        } else {
-          setError("Failed to fetch categories");
-        }
+        const data = await fetchTrekCategories();
+
+        if (!data || !data.message) throw new Error("Invalid API data");
+
+        const mappedCategories = data.message.map(cat => ({
+          id: cat.categoryId,
+          title: cat.title,
+          description: cat.description,
+          icon: <Sparkles className="w-8 h-8" />, // assign default icon
+          count: cat.trekCount || 0,
+          gradient: "from-green-400 to-emerald-500",
+          bgColor: "bg-green-50",
+          textColor: "text-green-700",
+          duration: "1-3 Days",
+          difficulty: cat.difficulty || "Easy",
+          image: `${DIR.CategoryImage}${cat.catImage}`,
+        }));
+
+        setCategories(mappedCategories);
       } catch (err) {
         console.error(err);
-        setError(err.message || "Something went wrong");
+        setError(err.message || "Failed to load categories");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCategories();
+    loadCategories();
   }, []);
 
-  // Filter buttons
   const filterButtons = [
     {
       id: "all",
@@ -395,7 +385,6 @@ const TrekCategories = () => {
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-
                   <div className="absolute inset-0 bg-black/30"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-white p-4 rounded-full bg-black/30">
