@@ -66,14 +66,13 @@
 
 // export default WishlistPage;
 
-
 import React, { useState } from "react";
-import { 
-  Heart, 
-  ChevronRight, 
-  MapPin, 
+import {
+  Heart,
+  ChevronRight,
+  MapPin,
   Calendar,
-  Users, 
+  Users,
   Mountain,
   Sparkles,
   Trash2,
@@ -84,7 +83,7 @@ import {
   Plane,
   Star,
   Globe,
-  TrendingUp
+  TrendingUp,
 } from "lucide-react";
 import WishlistCard from "../components/wishlist/WishlistCard";
 
@@ -96,7 +95,8 @@ const dummyWishlist = [
     location: "Nepal Himalayas",
     price: 2899,
     originalPrice: 3499,
-    image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
     difficulty: "Challenging",
     duration: "14 Days",
     groupSize: "4-12 People",
@@ -105,7 +105,7 @@ const dummyWishlist = [
     tags: ["Epic", "Bucket List", "Cultural"],
     featured: true,
     discount: 17,
-    season: "Mar-May, Sep-Nov"
+    season: "Mar-May, Sep-Nov",
   },
   {
     id: 2,
@@ -113,7 +113,8 @@ const dummyWishlist = [
     location: "Torres del Paine, Chile",
     price: 2299,
     originalPrice: 2799,
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
     difficulty: "Moderate",
     duration: "8 Days",
     groupSize: "6-16 People",
@@ -122,7 +123,7 @@ const dummyWishlist = [
     tags: ["Glaciers", "Wilderness", "Photography"],
     featured: false,
     discount: 18,
-    season: "Nov-Mar"
+    season: "Nov-Mar",
   },
   {
     id: 3,
@@ -130,7 +131,8 @@ const dummyWishlist = [
     location: "French Alps, Switzerland",
     price: 3199,
     originalPrice: 3699,
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
     difficulty: "Difficult",
     duration: "12 Days",
     groupSize: "4-8 People",
@@ -139,7 +141,7 @@ const dummyWishlist = [
     tags: ["Alpine", "Luxury", "European"],
     featured: true,
     discount: 14,
-    season: "Jun-Sep"
+    season: "Jun-Sep",
   },
   {
     id: 4,
@@ -147,7 +149,8 @@ const dummyWishlist = [
     location: "Tanzania, Africa",
     price: 3499,
     originalPrice: 3999,
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
     difficulty: "Extreme",
     duration: "9 Days",
     groupSize: "4-10 People",
@@ -156,7 +159,7 @@ const dummyWishlist = [
     tags: ["Seven Summits", "Volcano", "Wildlife"],
     featured: false,
     discount: 13,
-    season: "Jun-Oct"
+    season: "Jun-Oct",
   },
   {
     id: 5,
@@ -164,7 +167,8 @@ const dummyWishlist = [
     location: "Nepal",
     price: 1899,
     originalPrice: 2299,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
     difficulty: "Challenging",
     duration: "18 Days",
     groupSize: "4-12 People",
@@ -173,7 +177,7 @@ const dummyWishlist = [
     tags: ["Classic", "Cultural", "Diverse"],
     featured: true,
     discount: 17,
-    season: "Mar-May, Sep-Nov"
+    season: "Mar-May, Sep-Nov",
   },
   {
     id: 6,
@@ -181,7 +185,8 @@ const dummyWishlist = [
     location: "Iceland",
     price: 2599,
     originalPrice: 2999,
-    image: "https://media.istockphoto.com/id/1629533738/photo/godafoss-waterfall-flowing-with-colorful-sunset-sky-and-male-tourist-standing-on-cliff-in.jpg?s=612x612&w=0&k=20&c=oKRdh9yZhabi7PLMAalqQa2GrV_DcwrViH38cxCGGo0=",
+    image:
+      "https://media.istockphoto.com/id/1629533738/photo/godafoss-waterfall-flowing-with-colorful-sunset-sky-and-male-tourist-standing-on-cliff-in.jpg?s=612x612&w=0&k=20&c=oKRdh9yZhabi7PLMAalqQa2GrV_DcwrViH38cxCGGo0=",
     difficulty: "Moderate",
     duration: "10 Days",
     groupSize: "8-14 People",
@@ -190,8 +195,8 @@ const dummyWishlist = [
     tags: ["Northern Lights", "Unique", "Geothermal"],
     featured: false,
     discount: 13,
-    season: "Jun-Aug"
-  }
+    season: "Jun-Aug",
+  },
 ];
 
 const WishlistPage = () => {
@@ -213,14 +218,22 @@ const WishlistPage = () => {
   };
 
   const sortWishlist = (wishlist) => {
-    switch(sortBy) {
+    switch (sortBy) {
       case "price-low":
         return [...wishlist].sort((a, b) => a.price - b.price);
       case "price-high":
         return [...wishlist].sort((a, b) => b.price - a.price);
       case "difficulty":
-        const difficultyOrder = { "Moderate": 1, "Challenging": 2, "Difficult": 3, "Extreme": 4 };
-        return [...wishlist].sort((a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]);
+        const difficultyOrder = {
+          Moderate: 1,
+          Challenging: 2,
+          Difficult: 3,
+          Extreme: 4,
+        };
+        return [...wishlist].sort(
+          (a, b) =>
+            difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]
+        );
       case "rating":
         return [...wishlist].sort((a, b) => b.rating - a.rating);
       default:
@@ -229,15 +242,20 @@ const WishlistPage = () => {
   };
 
   const filterWishlist = (wishlist) => {
-    switch(filterBy) {
+    switch (filterBy) {
       case "featured":
-        return wishlist.filter(item => item.featured);
+        return wishlist.filter((item) => item.featured);
       case "under-2500":
-        return wishlist.filter(item => item.price < 2500);
+        return wishlist.filter((item) => item.price < 2500);
       case "challenging+":
-        return wishlist.filter(item => item.difficulty === "Challenging" || item.difficulty === "Difficult" || item.difficulty === "Extreme");
+        return wishlist.filter(
+          (item) =>
+            item.difficulty === "Challenging" ||
+            item.difficulty === "Difficult" ||
+            item.difficulty === "Extreme"
+        );
       case "short":
-        return wishlist.filter(item => parseInt(item.duration) <= 10);
+        return wishlist.filter((item) => parseInt(item.duration) <= 10);
       default:
         return wishlist;
     }
@@ -246,14 +264,17 @@ const WishlistPage = () => {
   const sortedAndFilteredWishlist = sortWishlist(filterWishlist(wishlist));
 
   const totalValue = wishlist.reduce((sum, item) => sum + item.price, 0);
-  const totalSavings = wishlist.reduce((sum, item) => sum + (item.originalPrice - item.price), 0);
+  const totalSavings = wishlist.reduce(
+    (sum, item) => sum + (item.originalPrice - item.price),
+    0
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50 relative overflow-hidden mt-15">
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-emerald-200/20 to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-200/20 to-transparent rounded-full translate-x-48 translate-y-48"></div>
-      
+
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 animate-float">
         <Mountain className="w-12 h-12 text-emerald-300/40" />
@@ -267,53 +288,77 @@ const WishlistPage = () => {
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white px-4 py-2 rounded-full mb-6 shadow-lg shadow-emerald-500/30">
             <Sparkles className="w-6 h-6" />
-            <span className="font-bold tracking-wider text-md">MY ADVENTURE WISHLIST</span>
+            <span className="font-bold tracking-wider text-md">
+              MY ADVENTURE WISHLIST
+            </span>
             <Heart className="w-6 h-6 fill-white" />
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Dream <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-600">Adventures</span> Await
+            Dream{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-600">
+              Adventures
+            </span>{" "}
+            Await
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-xl">
-            Your curated collection of epic journeys. Save, compare, and plan your next great adventure.
+            Your curated collection of epic journeys. Save, compare, and plan
+            your next great adventure.
           </p>
         </div>
 
         {/* Stats Overview */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-  {/* Total Adventures */}
-  <div className="bg-white/70 backdrop-blur-lg rounded-xl p-4 border-3 border-emerald-100 shadow-md flex flex-col items-center relative">
-    {/* Icon */}
-    <div className="absolute top-3 left-3 p-2 rounded-lg bg-emerald-100/50">
-      <Globe className="w-5 h-5 text-emerald-500" />
-    </div>
-    {/* Content */}
-    <h3 className="text-md font-semibold text-gray-700 mt-2">Total Adventures</h3>
-    <div className="text-2xl font-bold text-emerald-600 mt-1">{wishlist.length}</div>
-    <p className="text-sm text-gray-500 mt-1 text-center">Saved destinations</p>
-  </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          {/* Total Adventures */}
+          <div className="bg-white/70 backdrop-blur-lg rounded-xl p-4 border-3 border-emerald-100 shadow-md flex flex-col items-center relative">
+            {/* Icon */}
+            <div className="absolute top-3 left-3 p-2 rounded-lg bg-emerald-100/50">
+              <Globe className="w-5 h-5 text-emerald-500" />
+            </div>
+            {/* Content */}
+            <h3 className="text-md font-semibold text-gray-700 mt-2">
+              Total Adventures
+            </h3>
+            <div className="text-2xl font-bold text-emerald-600 mt-1">
+              {wishlist.length}
+            </div>
+            <p className="text-sm text-gray-500 mt-1 text-center">
+              Saved destinations
+            </p>
+          </div>
 
-  {/* Total Value */}
-  <div className="bg-white/70 backdrop-blur-lg rounded-lg p-4 border-3 border-amber-100 shadow-md flex flex-col items-center relative">
-    <div className="absolute top-3 left-3 p-2 rounded-lg bg-amber-100/50">
-      <TrendingUp className="w-5 h-5 text-amber-500" />
-    </div>
-    <h3 className="text-md font-semibold text-gray-700 mt-2">Total Value</h3>
-    <div className="text-2xl font-bold text-amber-600 mt-1">${totalValue.toLocaleString()}</div>
-    <p className="text-sm text-gray-500 mt-1 text-center">Dream adventures worth</p>
-  </div>
+          {/* Total Value */}
+          <div className="bg-white/70 backdrop-blur-lg rounded-lg p-4 border-3 border-amber-100 shadow-md flex flex-col items-center relative">
+            <div className="absolute top-3 left-3 p-2 rounded-lg bg-amber-100/50">
+              <TrendingUp className="w-5 h-5 text-amber-500" />
+            </div>
+            <h3 className="text-md font-semibold text-gray-700 mt-2">
+              Total Value
+            </h3>
+            <div className="text-2xl font-bold text-amber-600 mt-1">
+              ${totalValue.toLocaleString()}
+            </div>
+            <p className="text-sm text-gray-500 mt-1 text-center">
+              Dream adventures worth
+            </p>
+          </div>
 
-  {/* Total Savings */}
-  <div className="bg-white/70 backdrop-blur-lg rounded-lg p-4 border-3 border-green-100 shadow-md flex flex-col items-center relative">
-    <div className="absolute top-3 left-3 p-2 rounded-lg bg-green-100/50">
-      <Star className="w-5 h-5 text-green-500" />
-    </div>
-    <h3 className="text-md font-semibold text-gray-700 mt-2">Total Savings</h3>
-    <div className="text-2xl font-bold text-green-600 mt-1">${totalSavings.toLocaleString()}</div>
-    <p className="text-sm text-gray-500 mt-1 text-center">On early bird discounts</p>
-  </div>
-</div>
-
+          {/* Total Savings */}
+          <div className="bg-white/70 backdrop-blur-lg rounded-lg p-4 border-3 border-green-100 shadow-md flex flex-col items-center relative">
+            <div className="absolute top-3 left-3 p-2 rounded-lg bg-green-100/50">
+              <Star className="w-5 h-5 text-green-500" />
+            </div>
+            <h3 className="text-md font-semibold text-gray-700 mt-2">
+              Total Savings
+            </h3>
+            <div className="text-2xl font-bold text-green-600 mt-1">
+              ${totalSavings.toLocaleString()}
+            </div>
+            <p className="text-sm text-gray-500 mt-1 text-center">
+              On early bird discounts
+            </p>
+          </div>
+        </div>
 
         {/* Controls Bar */}
         {/* <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 border border-gray-200 shadow-lg mb-12">
@@ -385,7 +430,8 @@ const WishlistPage = () => {
               Your Adventure Wishlist Awaits
             </h2>
             <p className="text-gray-600 text-xl mb-10 max-w-2xl mx-auto">
-              Start collecting your dream destinations. Save adventures that inspire you and plan your ultimate journey.
+              Start collecting your dream destinations. Save adventures that
+              inspire you and plan your ultimate journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -410,8 +456,6 @@ const WishlistPage = () => {
                 <WishlistCard key={trek.id} trek={trek} onRemove={removeItem} />
               ))}
             </div>
-
-         
           </>
         )}
       </div>
@@ -447,7 +491,7 @@ const WishlistPage = () => {
 //   const [isHovered, setIsHovered] = useState(false);
 
 //   return (
-//     <div 
+//     <div
 //       className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02]"
 //       onMouseEnter={() => setIsHovered(true)}
 //       onMouseLeave={() => setIsHovered(false)}
@@ -529,11 +573,11 @@ const WishlistPage = () => {
 //             </div>
 //           </div>
 //           <div className="flex gap-2">
-//             <button 
+//             <button
 //               onClick={() => onRemove(trek.id)}
 //               className={`p-3 rounded-xl transition-all duration-300 ${
-//                 isHovered 
-//                   ? 'bg-red-500/20 border border-red-500/30' 
+//                 isHovered
+//                   ? 'bg-red-500/20 border border-red-500/30'
 //                   : 'bg-black/40 border border-gray-700'
 //               }`}
 //               title="Remove from wishlist"
