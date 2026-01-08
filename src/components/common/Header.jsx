@@ -47,6 +47,7 @@ const Header = () => {
   ];
 
   const alwaysScrolledPages = [
+    "/treks",
     "/trek-gallery",
     "/wishlist",
     "/contact",
@@ -66,7 +67,9 @@ const Header = () => {
       />
 
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`${
+          location.pathname === "/treks" ? "absolute" : "fixed"
+        } top-0 left-0 w-full z-50 transition-all duration-300 ${
           showSolidBackground
             ? "bg-emerald-900/95 backdrop-blur-md py-3 shadow-lg"
             : "bg-transparent py-5"

@@ -126,110 +126,152 @@
 // export default TrekIntroCard;
 
 
-import { Phone, Share2, MapPin, Star, ChevronRight, Bookmark, ArrowLeft } from "lucide-react";
+import {
+  Phone,
+  Share2,
+  MapPin,
+  Star,
+  ChevronRight,
+  Bookmark,
+  ArrowLeft,
+  Calendar,
+  Clock,
+  Zap,
+  CheckCircle2
+} from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const TrekIntroCard = () => {
+const TrekIntroCard = ({ onBookNow, price = "12,999" }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+    <div className="bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 py-2">
         {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-500 hover:text-emerald-600 mb-4 transition-colors font-medium text-sm group"
-        >
-          <div className="p-1 rounded-full bg-gray-100 group-hover:bg-emerald-100 transition-colors">
-            <ArrowLeft size={16} />
+
+
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+          {/* Left Section - Trek Details */}
+          <div className="flex-1 space-y-6">
+            <div>
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-wider rounded-full border border-emerald-100">
+                  Winter Trek
+                </span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded-full border border-blue-100">
+                  Snow Trek
+                </span>
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-full border border-indigo-100">
+                  Uttarakhand
+                </span>
+              </div>
+
+              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+                Brahmatal Trek
+              </h1>
+
+              <p className="text-gray-500 mt-3 flex items-center text-base">
+                <MapPin size={18} className="mr-2 text-red-500" />
+                <span className="font-medium">Lohajung Base Camp, Chamoli, Uttarakhand</span>
+              </p>
+            </div>
+
+            {/* Features/Quick Info Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 flex justify-center text-center">
+              <div className="flex flex-col p-2 rounded-2xl bg-gray-50 border border-gray-100">
+                {/* <div className="text-emerald-600 mb-1 flex items-center justify-center">
+                  <Calendar size={18} />
+                </div> */}
+                <span className="text-[10px] text-gray-500 font-bold uppercase">Best Season</span>
+                <span className="text-sm font-semibold text-gray-900">Dec – Mar</span>
+              </div>
+
+              <div className="flex flex-col p-3 rounded-2xl bg-gray-50 border border-gray-100">
+                {/* <div className="text-blue-600 mb-1 flex items-center justify-center">
+                  <Clock size={18} />
+                </div> */}
+                <span className="text-[10px] text-gray-500 font-bold uppercase">Duration</span>
+                <span className="text-sm font-semibold text-gray-900">6 Days</span>
+              </div>
+
+              <div className="flex flex-col p-3 rounded-2xl bg-gray-50 border border-gray-100">
+                {/* <div className="text-amber-600 mb-1 flex items-center justify-center">
+                  <Zap size={18} />
+                </div> */}
+                <span className="text-[10px] text-gray-500 font-bold uppercase">Difficulty</span>
+                <span className="text-sm font-semibold text-gray-900">Easy-Mod</span>
+              </div>
+
+              <div className="flex flex-col p-3 rounded-2xl bg-gray-50 border border-gray-100">
+                {/* <div className="text-indigo-600 mb-1 flex items-center justify-center">
+                  <Phone size={18} />
+                </div> */}
+                <span className="text-[10px] text-gray-500 font-bold uppercase">Contact</span>
+                <span className="text-sm font-semibold text-gray-900">+91 9356412002</span>
+              </div>
+            </div>
+
+            {/* Rating Badges */}
+            <div className="flex items-center gap-4 py-2">
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} size={16} className={`${s <= 4 ? "text-amber-400 fill-amber-400" : "text-gray-200"}`} />
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-gray-900">4.8</span>
+                <span className="text-xs text-gray-400 font-medium">(120 Reviews)</span>
+              </div>
+              <div className="h-4 w-px bg-gray-200"></div>
+              <div className="flex items-center gap-1 text-emerald-600">
+                <CheckCircle2 size={16} />
+                <span className="text-xs font-bold uppercase tracking-wide">Family Choice</span>
+              </div>
+            </div>
           </div>
-          Back
-        </button>
 
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
-          {/* Left Section */}
-          <div className="flex-1">
-            {/* Breadcrumb */}
-            {/* <div className="flex items-center text-sm text-gray-500 mb-2">
-              <span className="hover:text-red-600 cursor-pointer">Home</span>
-              <ChevronRight size={14} className="mx-2" />
-              <span className="hover:text-red-600 cursor-pointer">Treks</span>
-              <ChevronRight size={14} className="mx-2" />
-              <span className="hover:text-red-600 cursor-pointer">Uttarakhand</span>
-              <ChevronRight size={14} className="mx-2" />
-              <span className="font-medium text-gray-700">Brahmatal Trek</span>
-            </div> */}
+          {/* Right Section - Pricing and Action Card */}
+          <div className="w-full lg:w-80">
+            <div className="bg-white rounded-3xl p-4 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+              {/* Background Accent */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110 duration-500"></div>
 
-            {/* Main Title */}
-            <div className="flex items-start justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">Brahmatal Trek</h1>
-                <p className="text-gray-500 mt-1 flex items-center gap-2">
-                  <span className="px-2 py-1 bg-gray-100 rounded text-xs">Winter Trek</span>
-                  <span className="px-2 py-1 bg-gray-100 rounded text-xs">Snow Trek</span>
-                  <span className="text-gray-600">• Uttarakhand</span>
-                </p>
-                <p className="text-sm text-gray-500 mt-2 flex items-center">
-                  <MapPin size={14} className="mr-1" />
-                  Lohajung Base Camp, Chamoli, Uttarakhand
-                </p>
+              <div className="relative z-10">
+                <div className="my-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-gray-500 text-sm font-medium">From</span>
+                    <span className="text-2xl font-black text-gray-900">₹{price}</span>
+                  </div>
+                  <p className="text-gray-400 text-xs font-medium uppercase tracking-wider mt-1">per person • All inclusive</p>
+                </div>
+
+                <div className="space-y-3">
+                  <button
+                    onClick={onBookNow}
+                    className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-base transition-all transform hover:translate-y-[-2px] hover:shadow-lg active:scale-[0.98] flex items-center justify-center gap-2"
+                  >
+                    <span>Book Your Adventure</span>
+                    <ChevronRight size={18} />
+                  </button>
+
+                  {/* <div className="grid grid-cols-2 gap-3">
+                    <button className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-200 rounded-xl text-gray-600 font-semibold text-sm hover:bg-gray-50 transition-colors">
+                      <Bookmark size={14} />
+                      Save
+                    </button>
+                    <button className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-200 rounded-xl text-gray-600 font-semibold text-sm hover:bg-gray-50 transition-colors">
+                      <Share2 size={14} />
+                      Share
+                    </button>
+                  </div> */}
+                </div>
+
+
               </div>
-              {/* <button className="hidden lg:flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-red-600">
-                <Bookmark size={18} />
-                <span className="text-sm">Save</span>
-              </button> */}
             </div>
-
-            {/* Quick Info */}
-            <div className="flex flex-wrap items-center gap-4 mt-4 text-sm">
-              <span className="text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">
-                🗓️ Best Season • Dec – Mar
-              </span>
-              <span className="text-gray-600 bg-gray-50 px-3 py-1 rounded-full">
-                ⏱️ Duration • 6 Days
-              </span>
-              <span className="flex items-center gap-1 text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                <Phone size={14} /> +91 XXXXX XXXXX
-              </span>
-              <span className="text-gray-600 bg-gray-50 px-3 py-1 rounded-full">
-                🚶‍♂️ Difficulty • Easy-Moderate
-              </span>
-            </div>
-          </div>
-
-          {/* Right Section - Ratings */}
-          <div className="flex gap-3">
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-3 rounded-xl flex flex-col items-center justify-center shadow-lg">
-              <div className="flex items-center justify-center gap-1 font-bold text-lg">
-                4.8 <Star size={16} fill="white" />
-              </div>
-              <p className="text-xs mt-1 opacity-90">120 Reviews</p>
-            </div>
-            {/* <div className="bg-gradient-to-br from-blue-500 to-cyan-600 text-white px-4 py-3 rounded-xl flex flex-col items-center justify-center shadow-lg">
-              <div className="flex items-center justify-center gap-1 font-bold text-lg">
-                4.7 <Star size={16} fill="white" />
-              </div>
-              <p className="text-xs mt-1 opacity-90">Safety Score</p>
-            </div> */}
           </div>
         </div>
-
-        {/* Action Buttons */}
-        {/* <div className="flex flex-wrap items-center gap-3 mt-6 pt-4 border-t border-gray-100"> */}
-        {/* <button className="flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-red-200 hover:text-red-600 transition-all">
-            <MapPin size={16} /> <span className="font-medium">Trek Route</span>
-          </button> */}
-        {/* <button className="flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-blue-200 hover:text-blue-600 transition-all">
-            <Share2 size={16} /> <span className="font-medium">Share Trek</span>
-          </button> */}
-        {/* <button className="flex items-center gap-2 px-4 py-2.5 bg-red-50 border border-red-200 text-red-600 rounded-lg hover:bg-red-100 font-medium">
-            ⚡ View All Dates
-          </button> */}
-        {/* <button className="ml-auto flex items-center gap-2 px-4 py-2.5 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 text-sm">
-            <span>🔔</span> Notify Me
-          </button> */}
-        {/* </div> */}
       </div>
     </div>
   );
