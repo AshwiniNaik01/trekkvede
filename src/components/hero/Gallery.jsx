@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Sparkles, X, ArrowRight, Image as ImageIcon } from 'lucide-react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  X,
+  ArrowRight,
+  Image as ImageIcon,
+} from "lucide-react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -9,33 +16,33 @@ const Gallery = () => {
     {
       url: "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
       category: "Mountain Views",
-      title: "Majestic Peaks"
+      title: "Majestic Peaks",
     },
     {
       url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
       category: "Summit",
-      title: "The Final Ascent"
+      title: "The Final Ascent",
     },
     {
       url: "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
       category: "Trails",
-      title: "Valley Walk"
+      title: "Valley Walk",
     },
     {
       url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
       category: "Camping",
-      title: "Starry Nights"
+      title: "Starry Nights",
     },
     {
       url: "https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070",
       category: "Base Camp",
-      title: "Climbers Rest"
+      title: "Climbers Rest",
     },
     {
       url: "https://images.pexels.com/photos/914128/pexels-photo-914128.jpeg?cs=srgb&dl=pexels-saikat-ghosh-323099-914128.jpg&fm=jpg",
       category: "Himalayas",
-      title: "Everest Mist"
-    }
+      title: "Everest Mist",
+    },
   ];
 
   return (
@@ -54,7 +61,8 @@ const Gallery = () => {
               Moments of <span className="text-emerald-700">Adventure</span>
             </h2>
             <p className="text-gray-500 max-w-xl text-lg font-medium leading-relaxed">
-              Every trail tells a story through the lens of those who walk it. Explore our most iconic captures.
+              Every trail tells a story through the lens of those who walk it.
+              Explore our most iconic captures.
             </p>
           </div>
 
@@ -63,7 +71,10 @@ const Gallery = () => {
             className="group flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-black text-sm hover:bg-emerald-600 transition-all duration-500 shadow-2xl hover:shadow-emerald-200"
           >
             Explore Full Gallery
-            <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1.5 transition-transform"
+            />
           </Link>
         </div>
 
@@ -80,8 +91,12 @@ const Gallery = () => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-5">
-                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1">{image.category}</span>
-                <span className="text-white font-bold text-sm leading-tight">{image.title}</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1">
+                  {image.category}
+                </span>
+                <span className="text-white font-bold text-sm leading-tight">
+                  {image.title}
+                </span>
               </div>
 
               <div className="absolute top-4 right-4 w-8 h-8 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
@@ -106,8 +121,12 @@ const Gallery = () => {
             <button
               className="w-14 h-14 bg-white/5 text-white hover:bg-emerald-500 rounded-full shrink-0 flex items-center justify-center transition-all duration-300"
               onClick={() => {
-                const currentIndex = galleryImages.findIndex(img => img.url === selectedImage);
-                const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                const currentIndex = galleryImages.findIndex(
+                  (img) => img.url === selectedImage
+                );
+                const prevIndex =
+                  (currentIndex - 1 + galleryImages.length) %
+                  galleryImages.length;
                 setSelectedImage(galleryImages[prevIndex].url);
               }}
             >
@@ -125,7 +144,9 @@ const Gallery = () => {
             <button
               className="w-14 h-14 bg-white/5 text-white hover:bg-emerald-500 rounded-full shrink-0 flex items-center justify-center transition-all duration-300"
               onClick={() => {
-                const currentIndex = galleryImages.findIndex(img => img.url === selectedImage);
+                const currentIndex = galleryImages.findIndex(
+                  (img) => img.url === selectedImage
+                );
                 const nextIndex = (currentIndex + 1) % galleryImages.length;
                 setSelectedImage(galleryImages[nextIndex].url);
               }}
